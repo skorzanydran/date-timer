@@ -1,4 +1,4 @@
-var countDownDate = new Date("Apr 21, 2022 04:50:00").getTime();
+var countDownDate = new Date("Apr 21, 2022 04:50:00").getTime() - (300 * 60 * 1000);
 
 var x = setInterval(function () {
 
@@ -6,7 +6,9 @@ var x = setInterval(function () {
   var h = 1000 * 60 * 60;
   var s = 1000 * 60;
 
-  var now = new Date().getTime();
+  var now = new Date()
+  console.log(now.getTimezoneOffset())
+  now = now.getTime() + (now.getTimezoneOffset() * 60 * 1000);
   var distance = countDownDate - now;
   var days = Math.floor(distance / d);
   var hours = Math.floor((distance % d) / h);
